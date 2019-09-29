@@ -1,7 +1,7 @@
 # SQL Intro
 Small repo for instructions and documentation about an introduction to SQL.
 
-Follwoing these steps will run and setup a Docker contianer running MySQL with a sample database.  It's a sandbox - so experiment and enjoy.  If you destroy it beyond use then simply stop the container and start over.
+Following these steps will run and setup a Docker container running MySQL with a sample database.  It's a sandbox - so experiment and enjoy.  If you destroy it beyond use simply stop the container and start over.
 
 Enjoy!
 
@@ -20,10 +20,10 @@ It is assumed that these commands are run in the same directory as this repo.
 Run the mysql docker container in 'daemon' mode:
 
 ```
-docker run --rm -v $(pwd)/album_data.sql:/album_data.sql --name sql_intro --network host -d mysql/mysql-server
+docker run --rm --name sql_intro --network host -d mysql/mysql-server
 ```
 
-Now you have a local running MySQL server.  As long as this runs anything you do in the DB will persist.  Once you've stop this container everything will be lost.
+Now you have a local running MySQL server.  As long as this runs anything you do in the DB will persist.  Once you stop this container everything will be lost.
 
 ```
 # Find the root password (this may take a minute before the info is in the logs)
@@ -40,11 +40,16 @@ ALTER USER root@localhost IDENTIFIED BY 'temp123!';
 
 ## Load the 'music' DB
 Once the DB has been started and root password has been changed (steps above). Run the following to create the music DB.
-__This command needs to be run from the directory containing this repo__
 
 ```
-docker exec -it sql_intro mysql -u root -ptemp123! music < /album_data.sql
+docker exec -it sql_intro mysql -u root -ptemp123!
 ```
+
+Using your favorite editor open the file `album_data.sql`.  Copy the entire file and simply paste it into the MySQL CLI that you start above.
+
+Congratulations!  You now have a database.
+
+Either start a new connection to the database as described below in `Connect to the DB Server`
 
 ## Connect to the DB Server
 ```
