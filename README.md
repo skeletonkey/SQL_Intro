@@ -5,6 +5,8 @@ Following these steps will run and setup a Docker container running MySQL with a
 
 Enjoy!
 
+Slides available via [Slide Share](https://www.slideshare.net/ErikTank/sql-why-little-bobby-tables-is-funny)
+
 # Requirements
 * Docker
 
