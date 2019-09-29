@@ -1,0 +1,62 @@
+SELECT * FROM artist LIMIT 10;
+
+SELECT name as "Band Name", year_formed FROM artist;
+
+SELECT artist.name, album.name, song.name, track_num
+FROM artist, album, song
+WHERE artist.id = song.artist_id
+AND album.id = song.album_id
+ORDER BY artist.name, album.name, track_num;
+
+SELECT a.name as artist, al.name album, s.title as song, s.track_number
+FROM artist as a, album as al, song as s
+WHERE a.id = al.artist_id
+AND al.id = s.album_id
+ORDER BY a.name, al.name, s.track_number;
+
+SELECT a.name as artist, al.name album, s.title as song, s.track_number
+FROM artist as a
+INNER JOIN album as al ON a.id = al.artist_id
+INNER JOIN song as s   ON al.id = s.album_id
+ORDER BY a.name, al.name, s.track_number;
+
+SELECT a.name as artist, al.name album, s.title as song, s.track_number
+FROM artist as a
+INNER JOIN album as al ON a.id = al.artist_id
+INNER JOIN song as s   ON al.id = s.album_id
+WHERE a.name = 'Tool'
+ORDER BY a.name, al.name, s.track_number;
+
+
+
+
+
+
+
+
+
+SELECT a.name as artist, al.name album, s.title as song, s.track_number
+FROM artist as a
+LEFT JOIN album as al ON a.id = al.artist_id
+LEFT JOIN song as s   ON al.id = s.album_id
+ORDER BY al.name, a.name, s.track_number
+LIMIT 6;
+EXPLAIN SELECT name
+FROM artist
+WHERE id IN (
+    SELECT artist_id
+    FROM album
+WHERE release_date BETWEEN '2019-05-02' AND '2019-05-31'
+);
+
+INSERT INTO song
+    (uuid, album_id, title, track_number)
+VALUES
+    (UUID(), 4, 'One More Song', 13);
+
+UPDATE song
+SET     title = "Just One More Song",
+track_number = 12
+WHERE id = 51;
+
+DELETE FROM song WHERE id = 51;
