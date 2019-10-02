@@ -43,6 +43,8 @@ ALTER USER root@localhost IDENTIFIED BY 'temp123!';
 ## Load the 'music' DB
 Once the DB has been started and root password has been changed (steps above). Run the following to create the music DB.
 
+If you are not already at a `mysql>` prompt log into the CLI (Command Line Interface) with the following command:
+
 ```
 docker exec -it sql_intro mysql -u root -ptemp123!
 ```
@@ -51,7 +53,7 @@ Using your favorite editor open the file `album_data.sql`.  Copy the entire file
 
 Congratulations!  You now have a database.
 
-Either start a new connection to the database as described below in `Connect to the DB Server`
+Either start a new connection to the database as described below in `Connect to the DB Server` or switch to the database using `use music`
 
 ## Connect to the DB Server
 ```
