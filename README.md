@@ -16,7 +16,7 @@ Slides available via [Slide Share](https://www.slideshare.net/ErikTank/sql-why-l
 
 # Starting Your MySQL Sandbox
 ## Start DB Server
-*Important*: __These steps need to followed completely!__
+*Important*: __These steps need to be followed completely!__
 
 It is assumed that these commands are run in the same directory as this repo.
 Run the mysql docker container in 'daemon' mode:
@@ -58,7 +58,7 @@ Either start a new connection to the database as described below in `Connect to 
 docker exec -it sql_intro mysql -u root -ptemp123! music
 ```
 
-_Remember_: Data will only persis as long as you don't stop the server by turning off Docker or running: `docker stop sql_intro`
+_Remember_: Data will only persist as long as you don't stop the server by turning off Docker or running: `docker stop sql_intro`
 
 # Resources
 * Slide Template: [https://www.slidescarnival.com/kate-free-presentation-template/3530](https://www.slidescarnival.com/kate-free-presentation-template/3530)
